@@ -2,20 +2,36 @@
 #include <string.h>
 #define LARGO 50
 
+//Se usan los codigos ASCII de las letras para la resolucion de este problema
+
+void cifrado(char mensaje[], int n);
+
 int main(int argc, char *argv[]) {
 
 	char mensaje[LARGO];
-	int num;
+	int num,n;
 
         printf("Ingrese mensaje a cifrar: ");
         scanf("%s", mensaje);
 
         printf("Ingrese la llave numerica: ");
-        scanf("%d", &num);
+        n = scanf("%d", &num);
+	if (!n) {
+		printf("Solo se permiten caracteres numericos");
+	} else {
+		while (!(num>=-26&&num<=26)) {
+			printf("Debe ingresar un valor valido, intente nuevamente: ");
+			scanf("%d", &num);
+		}
+		cifrado(mensaje,num);
+	}
 
-	printf("%s %d",mensaje,&num);
+	return 0;
+}
 
-	char output[LARGO];
+void cifrado(char mensaje[], int n) {
+
+        char output[LARGO];
         int ascii;
         int nuevo_ascii;
 
@@ -44,7 +60,7 @@ int main(int argc, char *argv[]) {
                                                 output[i] = nuevo_ascii;
                                 } else {
                                         if (nuevo_ascii<65)
-                                                output[i] = 91 + nuevo_ascii -61;
+                                                output[i] = 91 + nuevo_ascii -65;
                                         else
                                                 output[i] = nuevo_ascii;
                                 }
@@ -55,7 +71,7 @@ int main(int argc, char *argv[]) {
         }
         printf("%s\n",output);
 
-	return 0;
 }
+
 
 
