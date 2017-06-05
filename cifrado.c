@@ -6,12 +6,13 @@
 #define COLS 26
 #define LARGO 1024
 
-char alfabeto[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','w','x','y','z'};
+//char alfabeto[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','w','x','y','z'};
 int getIndice(char letra); //Funcion auxiliar
 
 char* cifradoCiclico(char* mensaje, int llave){
 	int lenMen;
-	char caracter = '\0';	
+	char caracter = '\0';
+	char alfabeto[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','w','x','y','z'};	
 		
 	lenMen = 0;
 	while(mensaje[lenMen]!='\0'){
@@ -78,6 +79,7 @@ char* cifradoAutollave(char* mensaje, char* llave){
 
 //Metodo auxiliar usado en cifrado autollave
 int getIndice(char letra) {
+	char alfabeto[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','w','x','y','z'};
 	int indice = -1;
 	for (int i=0;i<27;i++) {
 		if (alfabeto[i]==letra)
@@ -89,6 +91,7 @@ int getIndice(char letra) {
 char* cifradoContrasena(char* mensaje, char* llave){
 	char* cifrado = (char *) malloc(sizeof(char) * LARGO);
 	char psw[LARGO] = {0};
+	char alfabeto[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','w','x','y','z'};
 	
 	strcpy(psw,llave);
 	strcat(psw,alfabeto);
