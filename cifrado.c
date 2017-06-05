@@ -21,7 +21,7 @@ char* cifradoCiclico(char* mensaje, int llave){
 	for(int i=0;i<lenMen;i++){
 		llave = llave%26;
 		for(int j=0;j<26;j++){
-			if (mensaje[i]==alfabeto[j]){
+			if (tolower(mensaje[i])==alfabeto[j]){
 				if (j+llave>25){
 					caracter = alfabeto[llave-1];
 				}else{
