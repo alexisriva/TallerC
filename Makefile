@@ -8,4 +8,7 @@ libcypher.so: cifrado.c
 
 dinamico: main.o codificacion.o libcypher.so
 	gcc -L./ -I./ main.o codificacion.o -lm -lcifrado -lcodificacion -o $@
+
+clean:
+	rm -f *.o libcypher.so
  
